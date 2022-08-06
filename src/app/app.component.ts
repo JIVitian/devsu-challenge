@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { Pokemon } from './models/pokemon';
+import { PokemonServiceService } from './services/pokemon-service/pokemon-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'devsu-challenge';
+
+  constructor(private pokemonService: PokemonServiceService) {}
+
+  ngOnInit() {
+    this.pokemonService.getPokemon(2114).subscribe(
+      (pokemon: Pokemon) => {
+        console.log(pokemon);
+      }
+    );
+  }
 }
