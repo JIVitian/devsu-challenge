@@ -49,6 +49,11 @@
         // background-color: #6658f6;
         accent-color: $purple;
         height: 6px;
+        transition: accent-color .5s;
+
+        &:hover {
+          accent-color: $dark-purple;
+        }
       }
     }
   }

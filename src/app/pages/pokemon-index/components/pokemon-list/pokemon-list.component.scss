@@ -39,6 +39,11 @@
 
           i {
             cursor: pointer;
+            transition: color .5s;
+
+            &:hover {
+              color: $dark-purple;
+            }
           }
         }
       }
