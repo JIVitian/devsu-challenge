@@ -11,8 +11,11 @@
     <app-pokemon-list
       [pokemonList]="(pokemonList$ | async) || []"
       (edit)="alert('edit ' + $event.id)"
-      (delete)="deletePokemon($event)"
+      (delete)="onDelete($event)"
     ></app-pokemon-list>
   </section>
-  <!-- <app-pokemon-editor class="new-pokemon-form"></app-pokemon-editor> -->
+  <app-pokemon-editor
+    class="new-pokemon-form"
+    (save)="onSave($event)"
+  ></app-pokemon-editor>
 </main>

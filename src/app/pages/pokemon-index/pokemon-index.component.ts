@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
+import { RawPokemon } from 'src/app/models/raw-pokemon';
 import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
 
 @Component({
@@ -17,27 +18,41 @@ export class PokemonIndexComponent implements OnInit {
     this.udateList();
   }
 
-  alert(action: string) {
-    alert(action);
-  }
-
-  deletePokemon(id: number) {
-    this.pokemonService.deletePokemon(id).subscribe({
-      next: () => {
-        this.alert('Pokemon deletado com sucesso!');
-        this.udateList();
-      },
-      error: () => {
-        this.alert('Erro ao deletar o Pokemon!');
-      },
-    });
-  }
-
   udateList() {
     this.pokemonList$ = this.pokemonService.getPokemons().pipe(
       map((pokemons: Pokemon[]) => {
         return pokemons.map((pokemon) => new Pokemon(pokemon));
       })
     );
+  }
+
+  alert(action: string) {
+    alert(action);
+  }
+
+  onDelete(id: number) {
+    this.pokemonService
+      .deletePokemon(id)
+      .subscribe(this.handleSusctiption('Pokemon eliminado con exito!', 'Error al eliminar pokemon'));
+  }
+
+  onSave(pokemon: Pokemon) {
+    const rawPokemon = new RawPokemon(pokemon);
+
+    this.pokemonService
+      .createPokemon(rawPokemon)
+      .subscribe(this.handleSusctiption('Pokemon creado con exito!'));
+  }
+
+  private handleSusctiption(success: string, error: string = '') {
+    return {
+      next: () => {
+        this.alert(success);
+        this.udateList();
+      },
+      error: (err: any) => {
+        this.alert(error || err);
+      },
+    };
   }
 }

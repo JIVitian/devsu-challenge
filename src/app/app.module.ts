@@ -9,6 +9,7 @@ import { PokemonSearchComponent } from './pages/pokemon-index/components/pokemon
 import { PokemonListComponent } from './pages/pokemon-index/components/pokemon-list/pokemon-list.component';
 import { PokemonEditorComponent } from './pages/pokemon-index/components/pokemon-editor/pokemon-editor.component';
 import { CustomRangeComponent } from './components/custom-range/custom-range.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CustomRangeComponent } from './components/custom-range/custom-range.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

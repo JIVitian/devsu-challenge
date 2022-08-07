@@ -1,30 +1,53 @@
-<form class="pokemon-form border radius">
+<form [formGroup]="pokemonForm" class="pokemon-form border radius" (submit)="onSubmit()">
   <h2 class="form-title">Nuevo Pokemon</h2>
 
   <section>
     <label>Nombre:</label>
-    <input type="text" class="error radius" name="name" placeholder="Nombre" />
+    <input
+      type="text"
+      formControlName="name"
+      class="radius"
+      [class.error]="!isControlValid('name')"
+      placeholder="Nombre"
+    />
   </section>
 
   <section>
     <label>Ataque:</label>
     <div>
       <span>0</span>
-      <input type="range" name="attack" min="0" max="100" step="1" />
+      <input
+        type="range"
+        formControlName="attack"
+        min="1"
+        max="100"
+        step="1"
+      />
       <span>100</span>
     </div>
   </section>
 
   <section>
     <label>Imagen:</label>
-    <input type="text" name="image" placeholder="url" />
+    <input
+      type="text"
+      formControlName="image"
+      [class.error]="!isControlValid('image')"
+      placeholder="url"
+    />
   </section>
 
   <section>
     <label>Defensa:</label>
     <div>
       <span>0</span>
-      <input type="range" name="defense" min="0" max="100" step="1" />
+      <input
+        type="range"
+        formControlName="defense"
+        min="1"
+        max="100"
+        step="1"
+      />
       <span>100</span>
     </div>
   </section>
