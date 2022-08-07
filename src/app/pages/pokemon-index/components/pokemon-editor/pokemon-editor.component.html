@@ -1,2 +1,42 @@
-<p>pokemon-editor works!</p>
+<form class="pokemon-form border radius">
+  <h2 class="form-title">Nuevo Pokemon</h2>
 
+  <section>
+    <label>Nombre:</label>
+    <input type="text" class="error radius" name="name" placeholder="Nombre" />
+  </section>
+
+  <section>
+    <label>Ataque:</label>
+    <div>
+      <span>0</span>
+      <input type="range" name="attack" min="0" max="100" step="1" />
+      <span>100</span>
+    </div>
+  </section>
+
+  <section>
+    <label>Imagen:</label>
+    <input type="text" name="image" placeholder="url" />
+  </section>
+
+  <section>
+    <label>Defensa:</label>
+    <div>
+      <span>0</span>
+      <input type="range" name="defense" min="0" max="100" step="1" />
+      <span>100</span>
+    </div>
+  </section>
+
+  <section class="form-footer">
+    <button>
+      <i class="bi bi-save"></i>
+      Guardar
+    </button>
+    <button>
+      <i class="bi bi-x-lg"></i>
+      Cancelar
+    </button>
+  </section>
+</form>

@@ -34,8 +34,20 @@ button {
   outline: none;
   border: none;
   border-radius: $border-radius;
+  transition: background-color .5s;
 
   i {
     margin-right: 3px;
   }
+
+  &:hover {
+    background-color: #5f4de0;
+    cursor: pointer;
+  }
+}
+
+input {
+  height: 40px;
+  padding: 0;
+  box-sizing: border-box;
 }

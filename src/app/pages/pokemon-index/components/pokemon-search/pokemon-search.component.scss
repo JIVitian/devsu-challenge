@@ -3,7 +3,8 @@
 .search-container {
   color: $dark-gray;
   width: 200px; // Sacar
-  padding: 10px;
+  height: 40px;
+  padding-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +15,7 @@
 
   input {
     width: 90%;
+    padding: 0;
     border: none;
     outline: none;
     font-size: 16px;

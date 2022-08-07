@@ -1,0 +1,60 @@
+@import 'src/styles';
+
+.pokemon-form {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  .form-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  section {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    label {
+      padding-right: 10px;
+    }
+
+    input[type='text'] {
+      width: 80%;
+      padding-left: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      border: 2px solid $gray;
+      border-radius: $border-radius;
+
+      &.error {
+        border: 2px solid $red;
+      }
+    }
+
+    div {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      input[type='range'] {
+        width: 85%;
+        // color: #6658f6;
+        // background-color: #6658f6;
+        accent-color: $purple;
+        height: 6px;
+      }
+    }
+  }
+
+  .form-footer {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
