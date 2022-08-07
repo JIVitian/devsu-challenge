@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { Pokemon } from './models/pokemon';
-import { PokemonServiceService } from './services/pokemon-service/pokemon-service.service';
+import { PokemonService } from './services/pokemon-service/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { PokemonServiceService } from './services/pokemon-service/pokemon-servic
 export class AppComponent implements OnInit {
   title = 'devsu-challenge';
 
-  constructor(private pokemonService: PokemonServiceService) {}
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
     this.pokemonService.getPokemon(2114).subscribe(

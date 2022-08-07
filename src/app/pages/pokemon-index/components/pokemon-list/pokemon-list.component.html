@@ -9,21 +9,13 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let pokemon of pokemons">
+    <tr *ngFor="let pokemon of pokemonList$ | async">
       <td>{{ pokemon.name }}</td>
-      <td>{{ pokemon.image }}</td>
+      <td class="sprite-container">
+        <img [src]="pokemon.image" referrerpolicy="no-referrer" [title]="pokemon.name">
+      </td>
       <td>{{ pokemon.attack }}</td>
       <td>{{ pokemon.defense }}</td>
-      <td>
-        <i class="bi bi-pencil"></i>
-        <i class="bi bi-trash3-fill"></i>
-      </td>
-    </tr> -->
-    <tr>
-      <td>Ivysaur</td>
-      <td class="sprite-container"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png"></td>
-      <td>65</td>
-      <td>38</td>
       <td class="actions">
         <div>
           <i class="bi bi-pencil-fill" title="Edit"></i>

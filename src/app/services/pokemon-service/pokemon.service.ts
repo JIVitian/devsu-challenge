@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PokemonServiceService {
+export class PokemonService {
 
   private path = environment.apiUrl;
   private idAuthorString = environment.idAuthorParam + environment.idAuthorValue;
