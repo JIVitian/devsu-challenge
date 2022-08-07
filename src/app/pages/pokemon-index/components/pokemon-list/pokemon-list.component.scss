@@ -1,0 +1,47 @@
+@import "src/styles";
+
+.pokemon-table {
+  border: 2px solid $gray;
+  border-collapse: collapse;
+  width: 100%;
+  // border-spacing: 0;
+
+  tr {
+    th {
+      border: 2px solid $gray;
+      height: 40px;
+    }
+
+    td {
+      box-sizing: border-box;
+      height: 40px;
+      border: 2px solid $gray;
+      padding-left: 15px;
+      margin: 0;
+
+      &.sprite-container {
+        padding: 0;
+        text-align: center;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      &.actions {
+        padding: 0;
+
+        div{
+          display: flex;
+          padding: 0;
+          justify-content: space-around;
+          color: $purple;
+
+          i {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

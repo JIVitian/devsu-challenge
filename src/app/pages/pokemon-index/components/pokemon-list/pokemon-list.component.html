@@ -1,1 +1,35 @@
-<p>pokemon-list works!</p>
+<table class="pokemon-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+      <th>Ataque</th>
+      <th>Defensa</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let pokemon of pokemons">
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.image }}</td>
+      <td>{{ pokemon.attack }}</td>
+      <td>{{ pokemon.defense }}</td>
+      <td>
+        <i class="bi bi-pencil"></i>
+        <i class="bi bi-trash3-fill"></i>
+      </td>
+    </tr> -->
+    <tr>
+      <td>Ivysaur</td>
+      <td class="sprite-container"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png"></td>
+      <td>65</td>
+      <td>38</td>
+      <td class="actions">
+        <div>
+          <i class="bi bi-pencil-fill" title="Edit"></i>
+          <i class="bi bi-trash3-fill" title="Delete"></i>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
