@@ -1,0 +1,27 @@
+@import 'src/styles';
+
+.search-container {
+  color: $dark-gray;
+  width: 200px; // Sacar
+  border: 2px solid $gray;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $border-radius;
+
+  i {
+    margin-right: 10px;
+  }
+
+  input {
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+
+    &::placeholder {
+      color: $light-gray;
+    }
+  }
+}
