@@ -3,12 +3,10 @@
 .search-container {
   color: $dark-gray;
   width: 200px; // Sacar
-  border: 2px solid $gray;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: $border-radius;
 
   i {
     margin-right: 10px;

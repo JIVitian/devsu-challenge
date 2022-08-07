@@ -9,8 +9,33 @@ $red: #b65865;
 
 $font-family: sans-serif;
 
-$border-radius: 5px;
+$border-radius: 4px;
+
+* {
+  font-size: 16px;
+}
 
 body {
   font-family: $font-family;
+}
+
+.border {
+  border: 2px solid $gray;
+}
+
+.radius {
+  border-radius: $border-radius;
+}
+
+button {
+  padding: 10px 15px;
+  color: white;
+  background-color: #6658f6;
+  outline: none;
+  border: none;
+  border-radius: $border-radius;
+
+  i {
+    margin-right: 3px;
+  }
 }
