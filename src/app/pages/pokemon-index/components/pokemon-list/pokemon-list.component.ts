@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
-import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,15 +7,14 @@ import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service
   styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
-  pokemonList$: Observable<Pokemon[]>;
 
-  constructor(private pokemonService: PokemonService) {}
+  @Input() pokemonList?: Pokemon[] = [];
+
+  @Output() edit = new EventEmitter<Pokemon>();
+  @Output() delete = new EventEmitter<number>();
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.pokemonList$ = this.pokemonService.getPokemons().pipe(
-      map((pokemons: Pokemon[]) => {
-        return pokemons.map((pokemon) => new Pokemon(pokemon));
-      })
-    );
   }
 }

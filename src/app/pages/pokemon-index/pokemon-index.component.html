@@ -8,7 +8,11 @@
     </button>
   </article>
   <section class="list">
-    <app-pokemon-list></app-pokemon-list>
+    <app-pokemon-list
+      [pokemonList]="(pokemonList$ | async) || []"
+      (edit)="alert('edit ' + $event.id)"
+      (delete)="alert('delete ' + $event)"
+    ></app-pokemon-list>
   </section>
-  <app-pokemon-editor class="new-pokemon-form"></app-pokemon-editor>
+  <!-- <app-pokemon-editor class="new-pokemon-form"></app-pokemon-editor> -->
 </main>

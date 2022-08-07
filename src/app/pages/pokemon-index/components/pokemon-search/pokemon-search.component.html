@@ -1,4 +1,8 @@
 <div class="search-container border radius">
   <i class="bi bi-search"></i>
-  <input type="text" placeholder="Buscar">
+  <input
+    type="text"
+    placeholder="Buscar"
+    (keydown.enter)="alertar()"
+  >
 </div>
