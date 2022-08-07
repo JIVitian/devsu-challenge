@@ -1,0 +1,17 @@
+@import 'src/styles';
+
+main {
+  width: 80%;
+  // height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+}
