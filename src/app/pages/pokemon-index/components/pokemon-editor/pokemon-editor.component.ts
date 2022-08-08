@@ -13,6 +13,7 @@ export class PokemonEditorComponent implements OnInit {
   @Input() title: string = 'Nuevo Pokemon';
   @Input() data: Pokemon;
   @Output() save = new EventEmitter<Pokemon>();
+  @Output() cancel = new EventEmitter<void>();
 
   constructor(private formBuilder: FormBuilder) {}
 

@@ -15,6 +15,7 @@
     <app-pokemon-list
       [pokemonList]="(pokemonList$ | async) || []"
       (edit)="onEdit($event)"
-      (delete)="onDelete($event)"></app-pokemon-list>
+      (delete)="onDelete($event)"
+    ></app-pokemon-list>
   </article>
 </section>
