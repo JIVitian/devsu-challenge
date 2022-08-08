@@ -19,6 +19,10 @@
       border: 2px solid $gray;
       padding-left: 15px;
       margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      overflow-wrap: anywhere;
+
 
       &.sprite-container {
         padding: 0;

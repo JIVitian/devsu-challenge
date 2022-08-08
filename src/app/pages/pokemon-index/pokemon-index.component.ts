@@ -15,10 +15,10 @@ export class PokemonIndexComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    this.udateList();
+    this.updateList();
   }
 
-  udateList() {
+  updateList() {
     this.pokemonList$ = this.pokemonService.getPokemons().pipe(
       map((pokemons: Pokemon[]) => {
         return pokemons.map((pokemon) => new Pokemon(pokemon));
@@ -48,10 +48,10 @@ export class PokemonIndexComponent implements OnInit {
     return {
       next: () => {
         this.alert(success);
-        this.udateList();
+        this.updateList();
       },
-      error: (err: any) => {
-        this.alert(error || err);
+      error: (serverError: any) => {
+        this.alert(error || serverError);
       },
     };
   }

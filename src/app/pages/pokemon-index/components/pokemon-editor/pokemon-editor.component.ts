@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pokemon } from 'src/app/models/pokemon';
 
@@ -10,6 +10,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class PokemonEditorComponent implements OnInit {
   pokemonForm: FormGroup;
 
+  @Input() data: Pokemon;
   @Output() save = new EventEmitter<Pokemon>();
 
   constructor(private formBuilder: FormBuilder) {}
@@ -18,14 +19,14 @@ export class PokemonEditorComponent implements OnInit {
     const URL_REGEXP = /^[A-Za-z][A-Za-z\d.+-]*:\/*(?:\w+(?::\w+)?@)?[^\s/]+(?::\d+)?(?:\/[\w#!:.?+=&%@\-/]*)?$/;
 
     this.pokemonForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      image: ['', [Validators.pattern(URL_REGEXP)]],
+      name: [this.data?.name || '', [Validators.required, Validators.pattern(/^([a-zA-Z0-9]+\s?)+$/)]],
+      image: [this.data?.image || '', [Validators.pattern(URL_REGEXP)]],
       attack: [
-        1,
+        this.data?.attack || 1,
         [Validators.required, Validators.min(1), Validators.max(100)],
       ],
       defense: [
-        1,
+        this.data?.defense || 1,
         [Validators.required, Validators.min(1), Validators.max(100)],
       ],
     });
