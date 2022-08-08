@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
-import { RawPokemon } from 'src/app/models/raw-pokemon';
 import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
 
 @Component({
@@ -27,10 +26,6 @@ export class PokemonIndexComponent implements OnInit {
     );
   }
 
-  alert(action: string) {
-    alert(action);
-  }
-
   onSearch(search: string) {
     // TODO: Actually there is no a search endpoint, but this is a placeholder for the future
 
@@ -40,7 +35,11 @@ export class PokemonIndexComponent implements OnInit {
     //   }
     // ));
 
-    this.alert('La palabra buscada es ' + search);
+    alert('La palabra buscada es ' + search);
+  }
+
+  onEdit(pokemon: Pokemon) {
+    this.router.navigateByUrl('pokemon/' + pokemon.id);
   }
 
   onDelete(id: number) {
@@ -48,37 +47,14 @@ export class PokemonIndexComponent implements OnInit {
 
     if (!decision) return;
 
-    this.pokemonService
-      .deletePokemon(id)
-      .subscribe(
-        this.handleSusctiption(
-          'Pokemon eliminado con exito!',
-          'Error al eliminar pokemon'
-        )
-      );
-  }
-
-  onEdit(pokemon: Pokemon) {
-    this.router.navigateByUrl('pokemon/' + pokemon.id);
-  }
-
-  onSave(pokemon: Pokemon) {
-    const rawPokemon = new RawPokemon(pokemon);
-
-    this.pokemonService
-      .createPokemon(rawPokemon)
-      .subscribe(this.handleSusctiption('Pokemon creado con exito!'));
-  }
-
-  private handleSusctiption(success: string, error: string = '') {
-    return {
+    this.pokemonService.deletePokemon(id).subscribe({
       next: () => {
-        this.alert(success);
+        alert('Pokemon eliminado con exito!');
         this.updateList();
       },
-      error: (serverError: any) => {
-        this.alert(error || serverError);
+      error: () => {
+        alert('Error al eliminar pokemon');
       },
-    };
+    });
   }
 }
