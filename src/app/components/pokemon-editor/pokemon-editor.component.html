@@ -7,7 +7,7 @@
       type="text"
       formControlName="name"
       class="radius"
-      [class.error]="!isControlValid('name')"
+      [class.error]="isSubmitted && !isControlValid('name')"
       placeholder="Nombre"
     />
   </section>
@@ -32,7 +32,7 @@
     <input
       type="text"
       formControlName="image"
-      [class.error]="!isControlValid('image')"
+      [class.error]="isSubmitted && !isControlValid('image')"
       placeholder="url"
     />
   </section>

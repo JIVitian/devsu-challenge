@@ -9,6 +9,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 })
 export class PokemonEditorComponent implements OnInit {
   pokemonForm: FormGroup;
+  isSubmitted: boolean = false;
 
   @Input() title: string = 'Nuevo Pokemon';
   @Input() data: Pokemon;
@@ -24,7 +25,7 @@ export class PokemonEditorComponent implements OnInit {
 
     this.pokemonForm = this.formBuilder.group({
       name: [this.data?.name || '', [Validators.required, Validators.pattern(/^([a-zA-Z0-9]+\s?)+$/)]],
-      image: [this.data?.image || '', [Validators.pattern(URL_REGEXP)]],
+      image: [this.data?.image || '', [Validators.required, Validators.pattern(URL_REGEXP)]],
       attack: [
         this.data?.attack || 1,
         [Validators.required, Validators.min(1), Validators.max(100)],
@@ -37,6 +38,7 @@ export class PokemonEditorComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSubmitted = true;
     // If the form is invalid, don't do anything.
     if(!this.pokemonForm.valid) return;
 
@@ -44,8 +46,6 @@ export class PokemonEditorComponent implements OnInit {
   }
 
   isControlValid(controlName: string) {
-    const control = this.pokemonForm.get(controlName);
-
-    return control?.valid || !control?.touched;
+    return this.pokemonForm.get(controlName)?.valid;
   }
 }
