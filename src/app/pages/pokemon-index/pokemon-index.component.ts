@@ -44,9 +44,18 @@ export class PokemonIndexComponent implements OnInit {
   }
 
   onDelete(id: number) {
+    const decision = confirm('¿Estas seguro de eliminar este pokemon?');
+
+    if (!decision) return;
+
     this.pokemonService
       .deletePokemon(id)
-      .subscribe(this.handleSusctiption('Pokemon eliminado con exito!', 'Error al eliminar pokemon'));
+      .subscribe(
+        this.handleSusctiption(
+          'Pokemon eliminado con exito!',
+          'Error al eliminar pokemon'
+        )
+      );
   }
 
   onEdit(pokemon: Pokemon) {
