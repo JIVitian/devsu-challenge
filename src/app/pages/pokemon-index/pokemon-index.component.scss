@@ -1,25 +1,16 @@
-@import 'src/styles';
+@import "src/styles";
 
-main {
-  width: 80%;
-  // height: 100vh;
-  margin: auto;
+.list-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
 
-  .list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-  }
+.list {
+  margin: 20px 0;
+}
 
-  .list {
-    margin: 20px 0;
-  }
-
-  .new-pokemon-form {
-    margin-top: 10px;
-  }
+.new-pokemon-form {
+  margin-top: 10px;
 }

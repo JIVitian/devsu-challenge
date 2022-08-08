@@ -1,4 +1,4 @@
-<main>
+<section>
   <h2>Listado de Pokemon</h2>
   <article class="list-header">
     <app-pokemon-search></app-pokemon-search>
@@ -7,15 +7,15 @@
       Nuevo
     </button>
   </article>
-  <section class="list">
+  <article class="list">
     <app-pokemon-list
       [pokemonList]="(pokemonList$ | async) || []"
       (edit)="alert('edit ' + $event.id)"
       (delete)="onDelete($event)"
     ></app-pokemon-list>
-  </section>
+  </article>
   <app-pokemon-editor
     class="new-pokemon-form"
     (save)="onSave($event)"
   ></app-pokemon-editor>
-</main>
+</section>
