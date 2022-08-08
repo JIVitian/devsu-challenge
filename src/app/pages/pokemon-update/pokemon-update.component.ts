@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
-import { RawPokemon } from 'src/app/models/raw-pokemon';
+import { PokemonApiResult } from 'src/app/models/pokemon-api-result';
 import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class PokemonUpdateComponent implements OnInit {
 
   onSave(pokemon: Pokemon) {
     this.enableSubmitButton = false;
-    const rawPokemon = new RawPokemon(pokemon);
+    const rawPokemon = new PokemonApiResult(pokemon);
     rawPokemon.id = this.pokemon.id;
 
     this.pokemonService.updatePokemon(rawPokemon).subscribe({

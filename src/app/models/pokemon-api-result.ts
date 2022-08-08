@@ -1,4 +1,4 @@
-export class RawPokemon {
+export class PokemonApiResult {
   id?: number;
   attack!: number;
   defense!: number;

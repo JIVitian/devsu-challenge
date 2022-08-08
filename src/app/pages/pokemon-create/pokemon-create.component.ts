@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
-import { RawPokemon } from 'src/app/models/raw-pokemon';
+import { PokemonApiResult } from 'src/app/models/pokemon-api-result';
 import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class PokemonCreateComponent implements OnInit {
   onSave(pokemon: Pokemon) {
     this.enableSubmitButton = false;
 
-    this.pokemonService.createPokemon(new RawPokemon(pokemon)).subscribe({
+    this.pokemonService.createPokemon(new PokemonApiResult(pokemon)).subscribe({
       next: () => {
         alert('Pokemon creado con exito!');
         this.router.navigate(['/pokemon']);
