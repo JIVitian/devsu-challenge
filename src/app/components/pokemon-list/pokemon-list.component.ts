@@ -7,6 +7,7 @@ import { Pokemon } from 'src/app/models/pokemon';
   styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
+  defaultSprite: string = 'https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_1280.png';
 
   @Input() pokemonList?: Pokemon[] = [];
 
@@ -15,6 +16,5 @@ export class PokemonListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

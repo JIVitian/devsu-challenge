@@ -18,7 +18,11 @@
           {{ pokemon.name }}
         </td>
         <td class="sprite-container">
-          <img [src]="pokemon.image" referrerpolicy="no-referrer" [title]="pokemon.name">
+          <img
+            [src]="pokemon?.image || defaultSprite"
+            referrerpolicy="no-referrer"
+            [title]="pokemon.name"
+          >
         </td>
         <td>{{ pokemon.attack }}</td>
         <td>{{ pokemon.defense }}</td>
