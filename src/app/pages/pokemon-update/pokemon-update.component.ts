@@ -38,7 +38,7 @@ export class PokemonUpdateComponent implements OnInit {
     this.pokemonService.updatePokemon(rawPokemon).subscribe({
       next: () => {
         alert('Pokemon actualizado con exito!');
-        this.enableSubmitButton = true;
+        this.router.navigate(['/pokemon']);
       },
       error: () => {
         alert('Error al actualizar pokemon');
