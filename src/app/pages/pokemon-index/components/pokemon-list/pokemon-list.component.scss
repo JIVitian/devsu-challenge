@@ -1,6 +1,7 @@
 @import "src/styles";
 
 .pokemon-table {
+  table-layout: fixed;
   border: 2px solid $gray;
   border-collapse: collapse;
   width: 100%;
@@ -20,9 +21,8 @@
       padding-left: 15px;
       margin: 0;
       overflow: hidden;
+      white-space: nowrap;
       text-overflow: ellipsis;
-      overflow-wrap: anywhere;
-
 
       &.sprite-container {
         padding: 0;
