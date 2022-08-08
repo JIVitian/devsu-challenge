@@ -20,6 +20,11 @@ export class PokemonUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ pokemon }) => {
+      if(!pokemon) {
+        alert('Pokemon no encontrado');
+        this.router.navigate(['/pokemon']);
+      }
+
       this.pokemon = new Pokemon(pokemon);
     });
   }
