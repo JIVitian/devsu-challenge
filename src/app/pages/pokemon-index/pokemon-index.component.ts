@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
 import { RawPokemon } from 'src/app/models/raw-pokemon';
@@ -12,7 +13,7 @@ import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service
 export class PokemonIndexComponent implements OnInit {
   pokemonList$: Observable<Pokemon[]>;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
     this.updateList();
@@ -34,6 +35,10 @@ export class PokemonIndexComponent implements OnInit {
     this.pokemonService
       .deletePokemon(id)
       .subscribe(this.handleSusctiption('Pokemon eliminado con exito!', 'Error al eliminar pokemon'));
+  }
+
+  onEdit(pokemon: Pokemon) {
+    this.router.navigateByUrl('pokemon/' + pokemon.id);
   }
 
   onSave(pokemon: Pokemon) {

@@ -2,20 +2,17 @@
   <h2>Listado de Pokemon</h2>
   <article class="list-header">
     <app-pokemon-search></app-pokemon-search>
-    <button>
-      <i class="bi bi-plus-lg"></i>
-      Nuevo
-    </button>
+    <a  routerLink="new">
+      <button>
+        <i class="bi bi-plus-lg"></i>
+        Nuevo
+      </button>
+    </a>
   </article>
   <article class="list">
     <app-pokemon-list
       [pokemonList]="(pokemonList$ | async) || []"
-      (edit)="alert('edit ' + $event.id)"
-      (delete)="onDelete($event)"
-    ></app-pokemon-list>
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)"></app-pokemon-list>
   </article>
-  <app-pokemon-editor
-    class="new-pokemon-form"
-    (save)="onSave($event)"
-  ></app-pokemon-editor>
 </section>
