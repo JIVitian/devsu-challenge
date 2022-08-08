@@ -19,7 +19,7 @@ export class PokemonService {
   }
 
   getPokemon(id: number): Observable<any> {
-    return this.http.get(this.path + '/' + id + this.idAuthorString);
+    return this.http.get(this.path + '/' + id);
   }
 
   createPokemon(pokemon: Pokemon): Observable<any> {
