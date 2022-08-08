@@ -1,6 +1,7 @@
 <app-pokemon-editor
   [title]="'Editar Pokemon'"
   [data]="pokemon"
+  [isSubmitButtonEnabled]="enableSubmitButton"
   (save)="onSave($event)"
   (cancel)="onCancel()"
 ></app-pokemon-editor>

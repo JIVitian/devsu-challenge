@@ -12,6 +12,8 @@ export class PokemonEditorComponent implements OnInit {
 
   @Input() title: string = 'Nuevo Pokemon';
   @Input() data: Pokemon;
+  @Input() isSubmitButtonEnabled: boolean = true;
+
   @Output() save = new EventEmitter<Pokemon>();
   @Output() cancel = new EventEmitter<void>();
 
@@ -38,8 +40,7 @@ export class PokemonEditorComponent implements OnInit {
     // If the form is invalid, don't do anything.
     if(!this.pokemonForm.valid) return;
 
-    const pokemon = new Pokemon(this.pokemonForm.value);
-    this.save.emit(pokemon);
+    this.save.emit(new Pokemon(this.pokemonForm.value));
   }
 
   isControlValid(controlName: string) {

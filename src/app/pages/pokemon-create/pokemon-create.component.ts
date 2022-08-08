@@ -10,13 +10,24 @@ import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service
   styleUrls: ['./pokemon-create.component.scss'],
 })
 export class PokemonCreateComponent implements OnInit {
+  enableSubmitButton: boolean = true;
+
   constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSave(pokemon: Pokemon) {
-    this.pokemonService.createPokemon(new RawPokemon(pokemon)).subscribe(() => {
-      alert('Pokemon creado con exito!');
+    this.enableSubmitButton = false;
+
+    this.pokemonService.createPokemon(new RawPokemon(pokemon)).subscribe({
+      next: () => {
+        alert('Pokemon creado con exito!');
+        this.router.navigate(['/pokemon']);
+      },
+      error: () => {
+        alert('Error al crear pokemon');
+        this.enableSubmitButton = true;
+      }
     });
   }
 

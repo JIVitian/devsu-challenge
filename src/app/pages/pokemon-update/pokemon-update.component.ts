@@ -11,6 +11,7 @@ import { PokemonService } from 'src/app/services/pokemon-service/pokemon.service
 })
 export class PokemonUpdateComponent implements OnInit {
   pokemon: Pokemon;
+  enableSubmitButton: boolean = true;
 
   constructor(
     private pokemonService: PokemonService,
@@ -30,11 +31,19 @@ export class PokemonUpdateComponent implements OnInit {
   }
 
   onSave(pokemon: Pokemon) {
+    this.enableSubmitButton = false;
     const rawPokemon = new RawPokemon(pokemon);
     rawPokemon.id = this.pokemon.id;
 
-    this.pokemonService.updatePokemon(rawPokemon).subscribe(() => {
-      alert('Pokemon actualizado con exito!');
+    this.pokemonService.updatePokemon(rawPokemon).subscribe({
+      next: () => {
+        alert('Pokemon actualizado con exito!');
+        this.enableSubmitButton = true;
+      },
+      error: () => {
+        alert('Error al actualizar pokemon');
+        this.enableSubmitButton = true;
+      }
     });
   }
 
