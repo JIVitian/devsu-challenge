@@ -31,6 +31,18 @@ export class PokemonIndexComponent implements OnInit {
     alert(action);
   }
 
+  onSearch(search: string) {
+    // TODO: Actually there is no a search endpoint, but this is a placeholder for the future
+
+    // this.pokemonList$ = this.pokemonService.getPokemonsByName(search).pipe(
+    //   map((pokemons: Pokemon[]) => {
+    //     return pokemons.map((pokemon) => new Pokemon(pokemon));
+    //   }
+    // ));
+
+    this.alert('La palabra buscada es ' + search);
+  }
+
   onDelete(id: number) {
     this.pokemonService
       .deletePokemon(id)

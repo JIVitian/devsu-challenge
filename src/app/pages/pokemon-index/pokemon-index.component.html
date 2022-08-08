@@ -1,7 +1,9 @@
 <section>
   <h2>Listado de Pokemon</h2>
   <article class="list-header">
-    <app-pokemon-search></app-pokemon-search>
+    <app-pokemon-search
+      (search)="onSearch($event)"
+    ></app-pokemon-search>
     <a  routerLink="new">
       <button>
         <i class="bi bi-plus-lg"></i>

@@ -3,6 +3,7 @@
   <input
     type="text"
     placeholder="Buscar"
-    (keydown.enter)="alertar()"
+    [formControl]="keyWord"
+    (keydown.enter)="onSearch()"
   >
 </div>
