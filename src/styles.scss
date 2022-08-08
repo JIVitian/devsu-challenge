@@ -6,7 +6,10 @@ $dark-purple: #473ad7;
 $gray: #cbd1d4;
 $light-gray: #cdd1d2;
 $dark-gray: #80898e;
+$disabled-button-background-color: #d0cdfc;
+$disabled-button-color: #dddcfa;
 $red: #b65865;
+
 
 $font-family: sans-serif;
 
@@ -44,6 +47,12 @@ button {
   &:hover {
     background-color: $dark-purple;
     cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: $disabled-button-background-color;
+    color: $disabled-button-color;
+    cursor: auto;
   }
 }
 
