@@ -57,8 +57,10 @@ export class PokemonEditorComponent implements OnInit {
     const errorsKeys = Object.keys(errors);
     if(!errorsKeys.length) return '';
 
+    // Get the error messages of the corresponding control.
     const controlErrors = pokemonEditorErrors[controlName as keyof typeof pokemonEditorErrors];
 
+    // Get the error message of the first error.
     return controlErrors[errorsKeys[0] as keyof typeof controlErrors];
   }
 }
