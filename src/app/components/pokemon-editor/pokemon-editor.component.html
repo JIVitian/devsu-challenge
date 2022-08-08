@@ -3,13 +3,18 @@
 
   <section>
     <label>Nombre:</label>
-    <input
-      type="text"
-      formControlName="name"
-      class="radius"
-      [class.error]="isSubmitted && !isControlValid('name')"
-      placeholder="Nombre"
-    />
+    <div class="text-input-container">
+      <input
+        type="text"
+        formControlName="name"
+        class="radius"
+        [class.error]="isSubmitted && !isControlValid('name')"
+        placeholder="Nombre"
+      />
+      <small class="error-message" *ngIf="isSubmitted && !isControlValid('name')">
+        {{ getErrorMessage('name') }}
+      </small>
+    </div>
   </section>
 
   <section>
@@ -29,12 +34,17 @@
 
   <section>
     <label>Imagen:</label>
-    <input
-      type="text"
-      formControlName="image"
-      [class.error]="isSubmitted && !isControlValid('image')"
-      placeholder="url"
-    />
+    <div class="text-input-container">
+      <input
+        type="text"
+        formControlName="image"
+        [class.error]="isSubmitted && !isControlValid('image')"
+        placeholder="url"
+      />
+      <small class="error-message" *ngIf="isSubmitted && !isControlValid('image')">
+        {{ getErrorMessage('image') }}
+      </small>
+    </div>
   </section>
 
   <section>

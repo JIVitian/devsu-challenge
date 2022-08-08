@@ -23,17 +23,31 @@
       padding-right: 10px;
     }
 
-    input[type='text'] {
-      width: 80%;
-      padding-left: 10px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      border: 2px solid $gray;
-      border-radius: $border-radius;
+    .text-input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      width: 100%;
 
-      &.error {
-        border: 2px solid $red;
+      input[type='text'] {
+        width: 80%;
+        padding-left: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        border: 2px solid $gray;
+        border-radius: $border-radius;
+
+        &.error {
+          border: 2px solid $red;
+        }
+      }
+
+      .error-message {
+        color: $red;
+        font-size: 12px;
+        margin-top: 5px;
       }
     }
 

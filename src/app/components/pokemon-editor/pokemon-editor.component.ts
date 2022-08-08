@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Pokemon } from 'src/app/models/pokemon';
+import { pokemonEditorErrors } from './pokemon-editor.errors';
 
 @Component({
   selector: 'app-pokemon-editor',
@@ -47,5 +48,17 @@ export class PokemonEditorComponent implements OnInit {
 
   isControlValid(controlName: string) {
     return this.pokemonForm.get(controlName)?.valid;
+  }
+
+  getErrorMessage(controlName: string): string {
+    const errors = this.pokemonForm.get(controlName)?.errors;
+    if(!errors) return '';
+
+    const errorsKeys = Object.keys(errors);
+    if(!errorsKeys.length) return '';
+
+    const controlErrors = pokemonEditorErrors[controlName as keyof typeof pokemonEditorErrors];
+
+    return controlErrors[errorsKeys[0] as keyof typeof controlErrors];
   }
 }
