@@ -13,7 +13,7 @@
   }
 
   section {
-    width: 35%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,8 +45,6 @@
 
       input[type='range'] {
         width: 85%;
-        // color: #6658f6;
-        // background-color: #6658f6;
         accent-color: $purple;
         height: 6px;
         transition: accent-color .5s;

@@ -10,6 +10,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class PokemonEditorComponent implements OnInit {
   pokemonForm: FormGroup;
 
+  @Input() title: string = 'Nuevo Pokemon';
   @Input() data: Pokemon;
   @Output() save = new EventEmitter<Pokemon>();
 
